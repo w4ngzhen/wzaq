@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="assets/love.svg"/>
+    <title>wz ❤️aq</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+          name="viewport">
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #root {
+            width: 100%;
+            height: 100%;
+            font-family: monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #root {
+            .title {
+                font-size: 20px;
+            }
+
+            .start-date {
+                font-size: small;
+                color: #666
+            }
+
+            .elapsed-time-display {
+                color: #666;
+
+                .elapsed-time {
+                    color: #000;
+                }
+            }
+        }
+
+        #root
+    </style>
+</head>
+<body>
+<div id="root">
+    <p class="title">wz<span style="color: red; margin: 0 10px; font-size: larger">❤️</span>aq</p>
+    <p class="elapsed-time-display">
+        spent <span class="elapsed-time"></span>s together
+    </p>
+    <p class="start-date">
+        2020-11-22
+    </p>
+</div>
+</body>
+<script src="lib/dayjs.min.js"></script>
+<script>
+    const startDateEle = document.querySelector(".start-date");
+    const elapsedTimeEle = document.querySelector(".elapsed-time");
+
+    const startDate = dayjs("2020-11-22", "YYYY-MM-DD");
+    startDateEle.innerHTML = `first date: ${startDate.format("YYYY-MM-DD")}`;
+    setSpendSec();
+    setInterval(setSpendSec, 1000);
+
+    function setSpendSec() {
+        const currTime = dayjs();
+        elapsedTimeEle.innerHTML = currTime.diff(startDate, "second");
+    }
+</script>
+</html>
